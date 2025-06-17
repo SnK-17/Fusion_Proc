@@ -33,3 +33,24 @@ This repository contains Python scripts and a supporting SQL query designed to a
 git clone https://github.com/WilsonH918/Oracle-Fusion-Role-Automation-Pipeline.git
 cd Oracle-Fusion-Role-Automation-Pipeline
 pip install -r requirements.txt
+FUSION_USERNAME=...
+FUSION_PASSWORD=...
+FUSION_BASE_URL=https://your-fusion-instance.oraclecloud.com
+```
+1. Add your Fusion credentials to a `.env` file:
+```bash
+FUSION_USERNAME=...
+FUSION_PASSWORD=...
+FUSION_BASE_URL=https://your-fusion-instance.oraclecloud.com
+```
+
+3. Place the following files in the project root:
+- `AgenttoAgentId_Report.xlsx` (generated from the SQL script)
+- `input.xlsx` (list of agents and BUs to be uploaded)
+
+3. Run one of the following scripts:
+```bash
+python deploy_auto.py   # Fully automated, no prompts
+python deploy_ui.py     # File dialog GUI
+python deploy_manual.py # Manual prompt for agent and BU
+```
