@@ -33,9 +33,6 @@ This repository contains Python scripts and a supporting SQL query designed to a
 git clone https://github.com/WilsonH918/Oracle-Fusion-Role-Automation-Pipeline.git
 cd Oracle-Fusion-Role-Automation-Pipeline
 pip install -r requirements.txt
-FUSION_USERNAME=...
-FUSION_PASSWORD=...
-FUSION_BASE_URL=https://your-fusion-instance.oraclecloud.com
 ```
 1. Add your Fusion credentials to a `.env` file:
 ```bash
@@ -54,3 +51,25 @@ python deploy_auto.py   # Fully automated, no prompts
 python deploy_ui.py     # File dialog GUI
 python deploy_manual.py # Manual prompt for agent and BU
 ```
+## 🧪 Examples
+
+- **Bulk Upload Example:**
+   Prepare `input.xlsx` with the following structure:
+   | Agent Name | Business Unit |
+   |------------|----------------|
+   | Jane Smith | US BU          |
+   | John Doe   | UK BU          |
+
+   Then run:
+   ```bash
+   python deploy_auto.py
+   python deploy_manual.py
+   ```
+
+## 📘 Oracle Fusion Context
+This solution is tailored for use within the Oracle Fusion Procurement module:
+Oracle requires Procurement Agent IDs to be tied to users in order to grant purchasing privileges.
+This repo uses Fusion’s REST API (/fscmRestApi/resources/11.13.18.05/procurementAgents) to configure those relationships.
+Ideal for system integrators and support teams automating large-scale Procurement agent setups or updates.
+
+
